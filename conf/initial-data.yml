@@ -1,0 +1,11 @@
+User(jb):
+    email: jb.bellet@gmail.com
+    password: cecile
+    fullname: Jean-Baptiste
+
+Post(myPost):
+    title: Post1
+    content: Lorem Ipsum
+    author: [jb]
+    postedAt: 2011-07-26
+    

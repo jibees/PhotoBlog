@@ -1,0 +1,5 @@
+29 juil. 2011 23:11:56,684 INFO  ~ Starting /Users/jibe/Developpement/photoblog/.
+29 juil. 2011 23:11:56,689 WARN  ~ Declaring modules in application.conf is deprecated. Use dependencies.yml instead (module.crud)
+29 juil. 2011 23:11:56,690 INFO  ~ Module crud is available (/Users/jibe/Developpement/play-1.2.2/modules/crud)
+29 juil. 2011 23:11:56,690 WARN  ~ Declaring modules in application.conf is deprecated. Use dependencies.yml instead (module.secure)
+29 juil. 2011 23:11:56,691 INFO  ~ Module secure is available (/Users/jibe/Developpement/play-1.2.2/modules/secure)

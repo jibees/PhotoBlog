@@ -1,0 +1,65 @@
+#{extends 'admin.html' /}
+ 
+#{ifnot post?.id}
+    <h3>Write <span>a new post</span></h3>
+#{/ifnot}
+#{else}
+    <h3>Edit <span>this post</span></h3>
+#{/else}
+ 
+#{form @save(post?.id)}
+ 
+    #{ifErrors}
+        <p class="error">
+            Please correct these errors.
+        </p>
+    #{/ifErrors}
+     
+    <p>
+        #{field 'title'}
+        <label>Post title:</label>
+        <input type="text" name="${field.name}" 
+            value="${post?.title}" class="${field.errorClass}" />
+        #{/field}
+    </p>
+ 
+    <p>
+        #{field 'content'}
+        <label>Write here:</label>
+        <textarea name="${field.name}" 
+            class="${field.errorClass}">${post?.content}</textarea>
+        #{/field}
+    </p>
+
+
+	<script>        
+        function createUploader() {            
+            var uploader = new qq.FileUploader({
+                element: document.getElementById('file-uploader-demo1'),
+                action: '@{ajaxUploadImage()}',
+                debug: true,
+                showMessage: function() {},
+                allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+                debug: true,
+                onComplete: function(id, fileName, responseJSON) {
+                	$("ul.qq-upload-list span.qq-upload-file").filter(function() {
+                		return $(this).text() == fileName;
+                	}).append("<img src='"+responseJSON.url+"' />");
+                }
+            });           
+        }
+        
+        $(document).ready(function(){
+        	// in your app create uploader as soon as the DOM is ready
+            // don't wait for the window to load  
+            window.onload = createUploader; 
+        });
+         
+    </script>
+	<div id="file-uploader-demo1"></div>		
+
+    <p>
+        <input type="submit" value="Publish this post to the blog" />
+    </p>
+    
+#{/form}
